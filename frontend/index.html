@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#faf8f4">
+    <title>JP AI Tutor — Your Japanese Learning Companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <div class="brand-mark">日</div>
+                <div>
+                    <h2>JP AI Tutor</h2>
+                    <p>Your Japanese companion</p>
+                </div>
+                <button class="icon-button close-sidebar" id="closeSidebar"
+                        aria-label="Close sidebar">×</button>
+            </div>
+
+            <button class="new-chat" id="newChat">
+                <span>＋</span> New conversation
+            </button>
+
+            <div class="side-section">
+                <p class="side-label">LEARN JAPANESE</p>
+                <button class="side-link" data-prompt="Teach me Japanese hiragana from the beginning.">
+                    <span>あ</span> Hiragana basics
+                </button>
+                <button class="side-link" data-prompt="Teach me useful Japanese vocabulary for daily life.">
+                    <span>言</span> Daily vocabulary
+                </button>
+                <button class="side-link" data-prompt="Explain a Japanese grammar point with simple examples.">
+                    <span>文</span> Grammar practice
+                </button>
+                <button class="side-link" data-prompt="Give me a Japanese conversation practice for beginners.">
+                    <span>会</span> Conversation practice
+                </button>
+                <button class="side-link" data-prompt="Give me a Japanese JLPT N5 practice quiz.">
+                    <span>桜</span> JLPT practice
+                </button>
+            </div>
+
+            <div class="side-section">
+                <p class="side-label">YOUR STUDY MATERIALS</p>
+                <div class="upload-mini">
+                    <span class="upload-symbol">↥</span>
+                    <div>
+                        <strong>Learn from your files</strong>
+                        <p>PDF, Word, Excel or TXT</p>
+                    </div>
+                </div>
+                <button class="side-link" id="sidebarUpload">
+                    <span>＋</span> Upload a document
+                </button>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="japan-stamp">日本語</div>
+                <p>Small steps every day.<br>大丈夫、ゆっくりでいいよ。</p>
+                <span class="offline-note">Your journey, your pace.</span>
+            </div>
+        </aside>
+
+        <!-- Main area -->
+        <main class="main">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="icon-button menu-button" id="menuButton"
+                            aria-label="Open sidebar">☰</button>
+                    <span class="breadcrumb">Learning space</span>
+                    <span class="breadcrumb-dot">/</span>
+                    <span class="breadcrumb-current">AI Tutor</span>
+                </div>
+                <div class="topbar-right">
+                    <span class="status-dot"></span>
+                    <span>Japanese learning</span>
+                </div>
+            </header>
+
+            <section class="conversation" id="conversation">
+                <!-- Welcome screen -->
+                <div class="welcome" id="welcome">
+                    <div class="hero-art" aria-hidden="true">
+                        <span class="hero-sun"></span>
+                        <span class="hero-mountain mountain-back"></span>
+                        <span class="hero-mountain mountain-front"></span>
+                        <span class="hero-torii">⛩</span>
+                        <span class="floating-sakura sakura-one">✿</span>
+                        <span class="floating-sakura sakura-two">✿</span>
+                        <span class="floating-sakura sakura-three">✿</span>
+                    </div>
+
+                    <div class="welcome-eyebrow">
+                        <span></span> YOUR PERSONAL JAPANESE SENSEI
+                    </div>
+
+                    <h1>Hey dear, want to<br>
+                        <span>learn Japanese?</span>
+                    </h1>
+
+                    <p class="welcome-description">
+                        I'm here to teach you. 🌸<br>
+                        From your very first あ to confident conversations,
+                        let's make learning Japanese a beautiful journey.
+                    </p>
+
+                    <div class="welcome-tags">
+                        <span>やさしく学ぼう</span>
+                        <span>Learn at your pace</span>
+                    </div>
+
+                    <div class="suggestion-heading">What shall we learn today?</div>
+
+                    <div class="suggestions">
+                        <button class="suggestion-card"
+                                data-prompt="Teach me five useful Japanese words for everyday life, with hiragana, romaji and English meanings.">
+                            <span class="suggestion-icon pink">あ</span>
+                            <span>
+                                <strong>Learn new words</strong>
+                                <small>Useful Japanese vocabulary</small>
+                            </span>
+                            <span class="suggestion-arrow">↗</span>
+                        </button>
+
+                        <button class="suggestion-card"
+                                data-prompt="Teach me one useful Japanese grammar point with a simple explanation and three examples.">
+                            <span class="suggestion-icon cream">文</span>
+                            <span>
+                                <strong>Understand grammar</strong>
+                                <small>Simple explanations and examples</small>
+                            </span>
+                            <span class="suggestion-arrow">↗</span>
+                        </button>
+
+                        <button class="suggestion-card"
+                                data-prompt="Let's practise a natural Japanese conversation for beginners. Ask me one question at a time and correct me kindly.">
+                            <span class="suggestion-icon green">会</span>
+                            <span>
+                                <strong>Practise speaking</strong>
+                                <small>Everyday Japanese conversations</small>
+                            </span>
+                            <span class="suggestion-arrow">↗</span>
+                        </button>
+
+                        <button class="suggestion-card"
+                                data-prompt="Create a short Japanese JLPT N5 quiz with five questions. Wait for my answers before showing the correct answers.">
+                            <span class="suggestion-icon blue">試</span>
+                            <span>
+                                <strong>Try a mini quiz</strong>
+                                <small>Build your JLPT confidence</small>
+                            </span>
+                            <span class="suggestion-arrow">↗</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chat messages are added here by JavaScript -->
+                <div class="messages" id="messages" aria-live="polite"></div>
+            </section>
+
+            <!-- Composer -->
+            <footer class="composer-area">
+                <div class="upload-status" id="uploadStatus" hidden>
+                    <span class="file-chip-icon">▤</span>
+                    <span id="uploadName"></span>
+                    <button id="removeUpload" aria-label="Remove uploaded document">×</button>
+                </div>
+
+                <form class="composer" id="chatForm">
+                    <input type="file" id="fileInput"
+                           accept=".pdf,.docx,.xlsx,.xls,.txt,.csv"
+                           hidden>
+
+                    <button class="attach-button" type="button" id="attachButton"
+                            title="Upload a document" aria-label="Upload a document">
+                        ＋
+                    </button>
+
+                    <textarea id="questionInput" rows="1"
+                              placeholder="Ask me anything about Japanese..."
+                              aria-label="Your question"></textarea>
+
+                    <select id="languageSelect" aria-label="Answer language"
+                            title="Answer language">
+                        <option value="English">EN</option>
+                        <option value="Telugu">TE</option>
+                        <option value="Hindi">HI</option>
+                        <option value="Japanese">日本語</option>
+                        <option value="Tamil">TA</option>
+                    </select>
+
+                   <button class="send-button" id="sendButton" type="submit"
+        aria-label="Send message" title="Send message">
+    <svg
+        class="send-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="m20 20-4-4"></path>
+    </svg>
+</button>
+                </form>
+
+                <p class="composer-hint">
+                    Your AI tutor can make mistakes. Keep learning, stay curious. ✿
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

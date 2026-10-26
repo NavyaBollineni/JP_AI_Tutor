@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+langchain-core
+langchain-text-splitters
+langchain-google-genai
+faiss-cpu
+pypdf
+pandas
+openpyxl
+xlrd
+python-docx
+sentence-transformers
+langchain-groq

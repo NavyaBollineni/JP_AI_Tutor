@@ -1,0 +1,945 @@
+
+:root {
+    --paper: #faf8f4;
+    --white: #ffffff;
+    --ink: #292c30;
+    --muted: #85858a;
+    --line: #eae6df;
+    --pink: #c96f82;
+    --pink-light: #f8e8eb;
+    --green-light: #e8eee5;
+    --blue-light: #e8edf5;
+    --cream: #f4eddf;
+    --shadow: 0 12px 36px rgba(50, 40, 35, 0.055);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Hide browser scrollbars without disabling scrolling */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: Inter, "Segoe UI", "Yu Gothic", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+}
+
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--pink);
+    outline-offset: 3px;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Sidebar */
+
+.sidebar {
+    width: 258px;
+    flex-shrink: 0;
+    background: #f5f2ec;
+    border-right: 1px solid var(--line);
+    padding: 24px 16px 18px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    z-index: 10;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+    width: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 5px;
+    margin-bottom: 27px;
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+    background: #bd697b;
+    color: white;
+    border-radius: 14px 14px 14px 4px;
+    display: grid;
+    place-items: center;
+    font-family: "Yu Mincho", serif;
+    font-size: 22px;
+    box-shadow: 0 5px 12px #bd697b2c;
+}
+
+.brand h2 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+}
+
+.brand p {
+    color: var(--muted);
+    font-size: 11px;
+    margin: 4px 0 0;
+}
+
+.icon-button {
+    border: none;
+    background: transparent;
+    color: #68686d;
+    border-radius: 9px;
+    padding: 8px;
+}
+
+.icon-button:hover {
+    background: #eae5dc;
+}
+
+.close-sidebar,
+.menu-button {
+    display: none;
+}
+
+.new-chat {
+    border: 1px solid #e3dcd3;
+    background: #fffdfa;
+    padding: 12px 14px;
+    border-radius: 12px;
+    text-align: left;
+    font-size: 13px;
+    color: #414146;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background .2s, transform .2s;
+}
+
+.new-chat:hover {
+    background: white;
+    transform: translateY(-1px);
+}
+
+.new-chat span {
+    color: var(--pink);
+    font-size: 20px;
+}
+
+.side-section {
+    margin-top: 30px;
+}
+
+.side-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #99938b;
+    letter-spacing: 1.3px;
+    padding-left: 9px;
+    margin: 0 0 12px;
+}
+
+.side-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-align: left;
+    background: transparent;
+    border: none;
+    border-radius: 9px;
+    padding: 10px 9px;
+    font-size: 12px;
+    color: #65646a;
+    transition: background .2s, color .2s;
+}
+
+.side-link:hover {
+    background: #ebe5dd;
+    color: var(--ink);
+}
+
+.side-link > span {
+    width: 20px;
+    text-align: center;
+    color: var(--pink);
+    font-size: 15px;
+    font-family: "Yu Mincho", serif;
+}
+
+.upload-mini {
+    display: flex;
+    gap: 10px;
+    padding: 11px 9px;
+    border-radius: 10px;
+    background: #ebe8e0;
+    margin-bottom: 8px;
+}
+
+.upload-symbol {
+    font-size: 20px;
+    color: var(--pink);
+}
+
+.upload-mini strong {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.upload-mini p {
+    font-size: 10px;
+    color: var(--muted);
+    margin: 5px 0 0;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: 23px 8px 2px;
+    border-top: 1px solid #e7e1d7;
+}
+
+.japan-stamp {
+    width: fit-content;
+    border: 1px solid #d9b4b8;
+    color: #bd697b;
+    padding: 5px 10px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    transform: rotate(-3deg);
+}
+
+.sidebar-bottom p {
+    font-family: "Yu Mincho", serif;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #69666a;
+}
+
+.offline-note {
+    color: #a09b94;
+    font-size: 10px;
+}
+
+/* Main layout */
+
+.main {
+    min-width: 0;
+    min-height: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.topbar {
+    flex-shrink: 0;
+    min-height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    border-bottom: 1px solid rgba(230, 225, 217, .75);
+    background: rgba(250, 248, 244, .88);
+}
+
+.topbar-left,
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+}
+
+.breadcrumb {
+    color: #99949a;
+}
+
+.breadcrumb-dot {
+    color: #c5bfc0;
+}
+
+.breadcrumb-current {
+    color: #4c4a4e;
+    font-weight: 600;
+}
+
+.topbar-right {
+    color: #8a8583;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #84a78b;
+    box-shadow: 0 0 0 3px #84a78b1c;
+}
+
+/* Conversation: scrolls, but its scrollbar is hidden */
+
+.conversation {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    padding: 18px 24px 28px;
+}
+
+.conversation::-webkit-scrollbar {
+    display: none;
+    width: 0;
+}
+
+.welcome {
+    max-width: 690px;
+    margin: 0 auto;
+    padding: 8px 0 25px;
+    text-align: center;
+}
+
+.hero-art {
+    width: 100%;
+    max-width: 490px;
+    height: 158px;
+    position: relative;
+    margin: 0 auto 19px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #f5e9e5 0%, #f4e6e1 62%, #e9e4da 100%);
+}
+
+.hero-sun {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: #d58e92;
+    position: absolute;
+    top: 18px;
+    left: calc(50% - 46px);
+    opacity: .85;
+}
+
+.hero-mountain {
+    position: absolute;
+    bottom: -38px;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+}
+
+.mountain-back {
+    left: calc(50% - 150px);
+    border-bottom: 110px solid #d7b5ad;
+}
+
+.mountain-front {
+    left: calc(50% - 85px);
+    border-left-width: 200px;
+    border-right-width: 200px;
+    border-bottom: 80px solid #b9c0ad;
+    opacity: .92;
+}
+
+.hero-torii {
+    position: absolute;
+    z-index: 2;
+    bottom: 18px;
+    left: calc(50% - 14px);
+    font-size: 43px;
+    filter: saturate(.65);
+}
+
+.floating-sakura {
+    position: absolute;
+    color: #c96f82;
+    opacity: .8;
+    font-size: 18px;
+    animation: float 5s ease-in-out infinite;
+}
+
+.sakura-one {
+    top: 30px;
+    left: 19%;
+}
+
+.sakura-two {
+    top: 70px;
+    right: 18%;
+    animation-delay: 1s;
+}
+
+.sakura-three {
+    top: 23px;
+    right: 29%;
+    font-size: 12px;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(8px) rotate(15deg); }
+}
+
+.welcome-eyebrow {
+    color: #b66d7e;
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.welcome-eyebrow span {
+    height: 1px;
+    width: 20px;
+    background: #d9a2ab;
+}
+
+.welcome h1 {
+    font-family: "Yu Mincho", "Georgia", serif;
+    font-weight: 500;
+    font-size: clamp(29px, 4vw, 43px);
+    line-height: 1.27;
+    letter-spacing: -1.4px;
+    margin: 0;
+}
+
+.welcome h1 span {
+    color: #bd697b;
+}
+
+.welcome-description {
+    font-size: 13px;
+    color: #858087;
+    line-height: 1.9;
+    margin: 15px 0 12px;
+}
+
+.welcome-tags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 26px;
+}
+
+.welcome-tags span {
+    font-size: 10px;
+    color: #8a7d7e;
+    background: #f3ebe7;
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
+.suggestion-heading {
+    font-size: 11px;
+    color: #68636a;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.suggestions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    text-align: left;
+}
+
+.suggestion-card {
+    min-width: 0;
+    border: 1px solid #eae4dd;
+    background: rgba(255, 255, 255, .72);
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 13px 12px;
+    text-align: left;
+    transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+
+.suggestion-card:hover {
+    border-color: #d9b3b9;
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+
+.suggestion-icon {
+    flex-shrink: 0;
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    font-family: "Yu Mincho", serif;
+    font-size: 17px;
+}
+
+.suggestion-icon.pink { background: var(--pink-light); color: #b96176; }
+.suggestion-icon.cream { background: var(--cream); color: #987a48; }
+.suggestion-icon.green { background: var(--green-light); color: #668369; }
+.suggestion-icon.blue { background: var(--blue-light); color: #6a7c9a; }
+
+.suggestion-card > span:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.suggestion-card strong {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.suggestion-card small {
+    font-size: 9px;
+    line-height: 1.4;
+    color: #979198;
+}
+
+.suggestion-arrow {
+    color: #b9adb0;
+    font-size: 15px;
+    margin-left: auto;
+    align-self: flex-start;
+}
+
+/* Chat messages */
+
+.messages {
+    max-width: 760px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.message {
+    display: flex;
+    gap: 11px;
+    margin: 20px 0;
+    align-items: flex-start;
+}
+
+.message.user {
+    flex-direction: row-reverse;
+}
+
+.message-avatar {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: var(--pink-light);
+    color: #b96176;
+    font-family: "Yu Mincho", serif;
+    font-size: 15px;
+}
+
+.message.user .message-avatar {
+    background: #e8e6df;
+    color: #55545a;
+    font-family: inherit;
+}
+
+.message-body {
+    max-width: min(85%, 630px);
+    min-width: 0;
+}
+
+.message-name {
+    font-size: 10px;
+    color: #999199;
+    margin: 2px 0 7px;
+}
+
+.message-text {
+    font-size: 13px;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+.message.user .message-text {
+    background: #eee8e1;
+    border-radius: 15px 4px 15px 15px;
+    padding: 11px 14px;
+}
+
+.message.assistant .message-text {
+    padding: 0 0 4px;
+}
+
+.message.assistant .message-text.error {
+    color: #b44e5d;
+}
+
+.typing {
+    color: #8d8588;
+    font-size: 12px;
+    padding: 7px 0;
+}
+
+.typing span {
+    display: inline-block;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: .25; }
+}
+
+/* Composer */
+
+.composer-area {
+    flex-shrink: 0;
+    padding: 8px 24px 17px;
+    background: linear-gradient(0deg, var(--paper) 82%, rgba(250,248,244,0));
+}
+
+.composer {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid #e4ded6;
+    border-radius: 17px;
+    background: white;
+    padding: 9px 10px;
+    box-shadow: 0 6px 24px rgba(50, 40, 35, .045);
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.composer:focus-within {
+    border-color: #d7aab3;
+    box-shadow: 0 0 0 3px #c96f8210, 0 6px 24px rgba(50, 40, 35, .04);
+}
+
+.attach-button {
+    flex-shrink: 0;
+    border: none;
+    width: 33px;
+    height: 33px;
+    border-radius: 10px;
+    background: #f7f3ee;
+    color: #777078;
+    font-size: 22px;
+}
+
+.attach-button:hover {
+    background: var(--pink-light);
+    color: var(--pink);
+}
+
+.composer textarea {
+    flex: 1;
+    min-width: 0;
+    max-height: 140px;
+    resize: none;
+    border: none;
+    outline: none;
+    color: var(--ink);
+    background: transparent;
+    font-size: 12px;
+    line-height: 1.7;
+    padding: 7px 0;
+}
+
+.composer textarea::placeholder {
+    color: #aaa3a9;
+}
+
+.composer select {
+    border: none;
+    background: #f8f5f1;
+    color: #68616a;
+    border-radius: 8px;
+    padding: 8px 5px;
+    font-size: 10px;
+    cursor: pointer;
+    max-width: 75px;
+}
+
+.send-button {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 11px;
+    background: #bd697b;
+    color: white;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    transition: background .2s, transform .2s;
+}
+
+.send-button:hover {
+    background: #a95669;
+    transform: translateY(-1px);
+}
+
+.send-button:disabled {
+    opacity: .5;
+    cursor: wait;
+    transform: none;
+}
+
+.send-icon {
+    width: 19px;
+    height: 19px;
+    display: block;
+}
+
+.composer-hint {
+    text-align: center;
+    color: #aaa3a4;
+    font-size: 9px;
+    margin: 10px 0 0;
+}
+
+.upload-status {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto 8px;
+    background: #f1ebe5;
+    border: 1px solid #e6ded5;
+    border-radius: 10px;
+    padding: 8px 11px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #72666b;
+    font-size: 11px;
+}
+
+.upload-status[hidden] {
+    display: none;
+}
+
+.file-chip-icon {
+    color: var(--pink);
+}
+
+#uploadName {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#removeUpload {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    color: #8c7e81;
+}
+
+/* Toast and mobile layout */
+
+.toast {
+    position: fixed;
+    bottom: 26px;
+    left: 50%;
+    transform: translate(-50%, 12px);
+    background: #343237;
+    color: white;
+    font-size: 12px;
+    padding: 11px 16px;
+    border-radius: 11px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s, transform .2s;
+    z-index: 30;
+    max-width: calc(100vw - 30px);
+    text-align: center;
+}
+
+.toast.visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+@media (min-width: 1100px) {
+    .conversation {
+        padding-top: 23px;
+    }
+
+    .welcome {
+        padding-top: 12px;
+    }
+}
+
+@media (max-width: 760px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-105%);
+        transition: transform .25s ease;
+        box-shadow: none;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+        box-shadow: 15px 0 50px #24202020;
+    }
+
+    .close-sidebar {
+        display: inline-block;
+        margin-left: auto;
+        font-size: 22px;
+    }
+
+    .menu-button {
+        display: inline-block;
+        padding: 6px;
+    }
+
+    .topbar {
+        min-height: 55px;
+        padding: 0 13px;
+    }
+
+    .topbar-left,
+    .topbar-right {
+        gap: 6px;
+        font-size: 10px;
+    }
+
+    .conversation {
+        padding: 12px 15px 22px;
+    }
+
+    .welcome {
+        padding-top: 10px;
+    }
+
+    .hero-art {
+        height: 125px;
+        margin-bottom: 17px;
+    }
+
+    .welcome h1 {
+        font-size: clamp(28px, 7vw, 38px);
+    }
+
+    .welcome-description {
+        font-size: 12px;
+    }
+
+    .suggestions {
+        gap: 8px;
+    }
+
+    .suggestion-card {
+        padding: 10px 9px;
+        gap: 8px;
+    }
+
+    .suggestion-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .suggestion-card strong {
+        font-size: 10px;
+    }
+
+    .suggestion-card small {
+        font-size: 9px;
+    }
+
+    .suggestion-arrow {
+        display: none;
+    }
+
+    .composer-area {
+        padding: 7px 12px 13px;
+    }
+
+    .composer {
+        gap: 6px;
+        padding: 7px;
+        min-height: 52px;
+    }
+
+    .composer select {
+        max-width: 63px;
+    }
+
+    .composer textarea {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 390px) {
+    .suggestions {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-art {
+        height: 108px;
+    }
+
+    .welcome-tags {
+        flex-wrap: wrap;
+    }
+
+    .topbar-right {
+        display: none;
+    }
+
+    .composer select {
+        max-width: 48px;
+        font-size: 9px;
+    }
+}
